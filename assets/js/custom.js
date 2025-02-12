@@ -67,6 +67,15 @@ $(document).ready(function(){
 				progressBar.each(function () {
 					var each_bar_width = $(this).attr('aria-valuenow');
 					$(this).width(each_bar_width + '%');
+					document.addEventListener("DOMContentLoaded", function () {
+    const progressBars = document.querySelectorAll(".progress-bar");
+
+    progressBars.forEach(bar => {
+        const percentage = bar.getAttribute("aria-valuenow"); // Get the percentage
+        bar.style.width = percentage + "%"; // Apply width dynamically
+        bar.innerHTML = percentage + "%"; // Show percentage text inside bar
+    });
+});
 				});
 			});
 		}
