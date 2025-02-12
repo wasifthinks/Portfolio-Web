@@ -595,8 +595,8 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
         9. Portfolio
 --------------------------------------*/
 .portfolio {
-    padding:  50px 0 100px;
-    border:  1px solid #e5ebf2;
+    padding:  50px 0 70px;
+    border:  7px solid #e5ebf2;
 }
 
 .portfolio-content {padding-top: 100px;}
