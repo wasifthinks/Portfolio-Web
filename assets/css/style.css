@@ -133,22 +133,29 @@ nav ul li.active > a {
    3. Welcome Hero Section
 ==================================== */
 .welcome-hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  background: url('../images/about/welcome-banner.jpg') no-repeat center center/cover;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('../images/about/welcome-banner.jpg') no-repeat center center;
+    background-size: contain; /* Ensures the image does not stretch */
+    background-color: #1a1a2e; /* Dark fallback color */
 }
+
 .welcome-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/about/welcome-banner.jpg') no-repeat center center;
+    background-size: cover; /* Makes the blurred background fill the screen */
+    filter: blur(20px); /* Adds a soft blur effect */
+    opacity: 0.5; /* Adjust transparency */
+    z-index: -1;
 }
 .header-text {
   position: relative;
