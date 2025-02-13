@@ -162,11 +162,11 @@ nav ul li.active > a {
   z-index: 2;
 }
 .welcome-hero h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #FFFFFF; /* Pure White */
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6); /* Soft shadow for better visibility */
 }
 .welcome-hero p {
   font-size: 1.25rem;
