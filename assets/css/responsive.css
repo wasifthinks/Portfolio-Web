@@ -8,7 +8,7 @@
    For screens up to 1680px
 ------------------------------------*/
 @media screen and (max-width:1680px){
-  /* General adjustments for large desktops */
+  /* General adjustments for large desktops if needed */
 }
 
 /*----------------------------------
@@ -25,14 +25,13 @@
 @media screen and (max-width:1199px){
   nav.navbar.bootsnav ul.nav > li > a { padding: 35px 8px; }
   .welcome-hero { height: 768px; }
-  .timeline-content span>i, .experience-time span>i { left: -15.5%; }
+  .timeline-content span > i, .experience-time span > i { left: -15.5%; }
 }
 
 /*----------------------------------
    For screens up to 1024px
 ------------------------------------*/
 @media screen and (max-width:1024px){
-  /* Adjust header and sections if needed */
   header { padding: 1rem 3%; }
   .welcome-hero { height: 700px; }
 }
@@ -54,8 +53,8 @@
   .experience-time-responsive { display: block; }
   .experience-time-main { display: none; }
   .experience-time, .timeline-content { text-align: left; margin-bottom: 20px; margin-left: 40px; }
-  .timeline-content span>i { left: 0%; top: -54%; }
-  .experience-time span>i { left: -6%; top: 6%; }
+  .timeline-content span > i { left: 0%; top: -54%; }
+  .experience-time span > i { left: -6%; top: 6%; }
   .main-timeline::before { left: 0.4%; }
   .education .education-horizontal-timeline {
     flex-direction: column;
@@ -73,9 +72,7 @@
   .about, .education, .skills, .experience, .profiles, .portfolio, .contact {
     padding: 3rem 2%;
   }
-  .about .about-content {
-    flex-direction: column;
-  }
+  .about .about-content { flex-direction: column; }
 }
 
 /*----------------------------------
@@ -83,7 +80,7 @@
 ------------------------------------*/
 @media screen and (max-width:767px){
   .single-about-img { max-width: 450px; }
-  .experience-time span>i, .timeline-content span>i, .main-timeline::before { display: none; }
+  .experience-time span > i, .timeline-content span > i, .main-timeline::before { display: none; }
   .experience-time, .timeline-content { margin-left: 0; text-align: left; }
   .isotope .item { max-width: 350px; margin: 0 auto 30px; }
   .single-profile { max-width: 350px; margin: 30px auto; border: 0; }
@@ -96,7 +93,7 @@
 ------------------------------------*/
 @media screen and (max-width:660px){
   .welcome-hero { height: 600px; }
-  .navbar ul li a { padding: 10px 8px; font-size: 0.9rem; }
+  nav.navbar.bootsnav ul.nav li a { padding: 10px 8px; font-size: 0.9rem; }
 }
 
 /*----------------------------------
@@ -136,7 +133,3 @@
   .navbar-brand { font-size: 1.4rem; }
   nav.navbar.bootsnav ul.nav li a { font-size: 0.9rem; padding: 8px 10px; }
 }
-
-/*==================================
-   End of Updated Responsive CSS
-==================================== */
