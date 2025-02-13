@@ -2,7 +2,17 @@
 * Updated Style CSS
 * Modern Portfolio Theme
 * Version       : 2.0 (Extended)
-* Author        : "Wasif Azim" (Adapted from ThemeSine)
+* Author        : Wasif Azim (Adapted from ThemeSine)
+* 
+* This file is designed to integrate with the following library CSS files:
+*   - animate.css
+*   - bootsnav.css
+*   - bootstrap.min.css
+*   - flaticon.css
+*   - owl.carousel.min.css
+*   - font-awesome.min.css
+*   - owl.theme.default.min.css
+*   - responsive.css
 ====================================*/
 
 /*==================================
@@ -28,11 +38,9 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
   font-size: 16px;
   color: var(--text-light);
@@ -42,7 +50,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Typography */
+/* Basic Typography */
 a {
   text-decoration: none;
   color: #6a708e;
@@ -54,7 +62,6 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   color: #43485c;
   font-weight: 600;
-  text-transform: capitalize;
   margin-bottom: 0.5rem;
 }
 p {
@@ -62,8 +69,6 @@ p {
   color: #43485c;
   font-size: 14px;
 }
-
-/* Images */
 img {
   border: none;
   max-width: 100%;
@@ -75,7 +80,6 @@ img {
   position: relative;
   clear: both;
 }
-
 .clearfix::after {
   content: "";
   display: table;
@@ -85,25 +89,21 @@ img {
 /*==================================
    2. Header Section
 ==================================== */
-.top-area, header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
 header {
   background: var(--header-bg);
   backdrop-filter: blur(10px);
   padding: 15px 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .navbar-brand {
   font-size: 1.8rem;
   font-weight: 700;
@@ -111,13 +111,11 @@ header {
   text-transform: uppercase;
   padding: 10px 0;
 }
-
 nav ul {
   list-style: none;
   display: flex;
   gap: 1.5rem;
 }
-
 nav ul li a {
   font-size: 1rem;
   font-weight: 500;
@@ -150,7 +148,7 @@ nav ul li.active > a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
 }
 .header-text {
   position: relative;
@@ -578,12 +576,11 @@ footer a:hover {
 }
 
 /*==================================
-   14. Additional Utility Classes & Animations
+   14. Additional Utilities & Animations
 ==================================== */
 .fadeIn {
   animation: fadeInAnimation 1s ease-in-out forwards;
 }
-
 @keyframes fadeInAnimation {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -596,13 +593,12 @@ footer a:hover {
 .mb-2 { margin-bottom: 2rem; }
 
 /*==================================
-   End of Updated Style CSS
+   End of Updated style.css
 ==================================== */
 
-/*==================================
-   Recommended Image Sizes:
-   - Hero Background Image: 1920 x 1080 (or larger for retina displays)
-   - About Section Profile Image: 500 x 468 (or square 500 x 500)
-   - Portfolio Images: Ideally 800 x 600 (or optimized for your layout)
-   - Clients Logos: 300 x 150 (adjust as needed)
-==================================== */
+/* Recommended Image Sizes:
+   - Hero Background: 1920 x 1080 (or larger for retina displays)
+   - About Profile: 500 x 500 (square is recommended)
+   - Portfolio Images: Approximately 800 x 600 (or optimized for layout)
+   - Clients Logos: Around 300 x 150 (adjust as needed)
+*/
