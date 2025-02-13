@@ -487,11 +487,15 @@ nav.navbar.bootsnav.no-background{
 	transition: all 0.3s ease-in-out;
 }
 
-.wrap-sticky nav.navbar.bootsnav{
-    position: absolute;
+.wrap-sticky nav.navbar.bootsnav {
+    position: fixed !important;
     width: 100%;
-    left: 0;
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(15px) !important;
     top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
 }
 
 .wrap-sticky nav.navbar.bootsnav.sticked{
