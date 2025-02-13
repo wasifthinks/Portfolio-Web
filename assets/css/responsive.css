@@ -68,7 +68,7 @@
 @media screen and (max-width:768px){
   header { padding: 1rem 2%; }
   .navbar { flex-direction: column; }
-  .welcome-hero h1 { font-size: 2.5rem; }
+  .welcome-hero h1 { font-size: 2.8rem; }
   .about, .education, .skills, .experience, .profiles, .portfolio, .contact {
     padding: 3rem 2%;
   }
