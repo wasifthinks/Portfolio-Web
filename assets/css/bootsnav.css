@@ -39,23 +39,26 @@ nav.bootsnav .dropdown.megamenu-fw .dropdown-menu {
 
 /* Navbar
 =================================*/
-nav.navbar.bootsnav{
-    margin-bottom: 0;
-    -moz-border-radius: 0px;
-    -webkit-border-radius: 0px;
-    -o-border-radius: 0px;
-    border-radius: 0px;
-    background-color: #fff;
-    border: none;
-    border-bottom: solid 1px #e0e0e0;
-    z-index: 9;
+nav.navbar.bootsnav {
+    height: 85px !important; /* Increase height */
+    background: rgba(0, 0, 0, 0.9) !important; /* Dark background */
+    backdrop-filter: blur(15px) !important; /* Add blur effect */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s ease-in-out;
 }
 
-nav.navbar.bootsnav ul.nav > li > a{
-    color: #6f6f6f;
-    background-color: transparent;
-    outline: none;
-    margin-bottom: -2px;
+nav.navbar.bootsnav ul.nav > li > a {
+    font-size: 1.2rem !important; /* Bigger text */
+    font-weight: 600 !important;
+    padding: 15px 22px !important;
+    color: white !important; /* Make text visible */
+    transition: color 0.3s ease, background 0.3s ease;
+    border-radius: 8px;
+}
+nav.navbar.bootsnav ul.nav > li > a:hover,
+nav.navbar.bootsnav ul.nav > li.active > a {
+    color: #FF007F !important;
+    background: rgba(255, 255, 255, 0.1) !important;
 }
 
 nav.navbar.bootsnav ul.nav li.megamenu-fw > a:hover,
