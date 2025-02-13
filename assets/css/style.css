@@ -89,44 +89,62 @@ img {
 /*==================================
    2. Header Section
 ==================================== */
+/* Updated Navbar */
 header {
-  background: var(--header-bg);
-  backdrop-filter: blur(10px);
-  padding: 15px 5%;
+  background: rgba(0, 0, 0, 0.9); /* Higher opacity for better visibility */
+  backdrop-filter: blur(15px); /* Stronger blur effect */
+  padding: 20px 5%;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+  transition: all 0.3s ease-in-out;
 }
+
 .navbar {
+  height: 85px; /* Increased navbar height */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+/* Navbar Brand (Logo / Name) */
 .navbar-brand {
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-size: 2rem; /* Increased font size */
+  font-weight: 800; /* Bold for better visibility */
   color: var(--primary-color);
   text-transform: uppercase;
-  padding: 10px 0;
+  padding: 15px 0;
+  transition: color 0.3s ease;
 }
+
+.navbar-brand:hover {
+  color: var(--secondary-color); /* Subtle color change on hover */
+}
+
+/* Navbar Links */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem; /* Increased spacing between links */
 }
+
 nav ul li a {
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 10px 20px;
-  color: #fff;
-  transition: color var(--transition-speed) ease;
+  font-size: 1.2rem; /* Increased text size for readability */
+  font-weight: 600; /* Slightly bolder */
+  padding: 12px 22px;
+  color: #ffffff; /* Brighter white */
+  transition: color 0.3s ease, background 0.3s ease;
+  border-radius: 8px; /* Rounded corners */
 }
+
+/* Hover & Active State */
 nav ul li a:hover,
 nav ul li a:focus,
 nav ul li.active > a {
-  color: var(--primary-color);
+  color: #FF007F; /* Highlight color */
+  background: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
 }
 
 /*==================================
@@ -153,8 +171,8 @@ nav ul li.active > a {
     height: 100%;
     background: url('../images/about/welcome-banner.jpg') no-repeat center center;
     background-size: cover; /* Makes the blurred background fill the screen */
-    filter: blur(20px); /* Adds a soft blur effect */
-    opacity: 0.5; /* Adjust transparency */
+    filter: blur(30px); /* Adds a stronger blur effect */
+    opacity: 0.6; /* Adjust transparency */
     z-index: -1;
 }
 .header-text {
@@ -162,11 +180,11 @@ nav ul li.active > a {
   z-index: 2;
 }
 .welcome-hero h1 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    color: #FFFFFF; /* Pure White */
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6); /* Soft shadow for better visibility */
+    color: #00FFFF; /* Neon Cyan */
+    text-shadow: 0px 0px 10px #00FFFF, 0px 0px 25px #00FFFF;
 }
 .welcome-hero p {
   font-size: 1.25rem;
