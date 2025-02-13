@@ -42,7 +42,7 @@ nav.bootsnav .dropdown.megamenu-fw .dropdown-menu {
 nav.navbar.bootsnav {
     height: 85px !important; /* Increase height */
     background: rgba(0, 0, 0, 0.9) !important; /* Dark background */
-    backdrop-filter: blur(15px) !important; /* Add blur effect */
+    backdrop-filter: blur(20px) !important; /* Add blur effect */
     border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
     transition: all 0.3s ease-in-out;
 }
@@ -51,7 +51,9 @@ nav.navbar.bootsnav ul.nav > li > a {
     font-size: 1.2rem !important; /* Bigger text */
     font-weight: 600 !important;
     padding: 15px 22px !important;
-    color: white !important; /* Make text visible */
+    color: #FFFFFF !important;
+	/* Make text visible */
+    text-transform: uppercase;
     transition: color 0.3s ease, background 0.3s ease;
     border-radius: 8px;
 }
@@ -70,9 +72,9 @@ nav.navbar.bootsnav ul.nav li.active > a{
 }
 
 nav.navbar.bootsnav .navbar-toggle{
-    background-color: #fff;
+    background-color: #6f6f6f;
     border: none;
-    padding: 0;
+    padding: 1rem;
     font-size: 18px;
     position: relative;
     top: 5px;
