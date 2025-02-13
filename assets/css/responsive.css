@@ -1,96 +1,142 @@
+/*==================================
+   Updated Responsive CSS
+   Modern Portfolio Theme
+   Version       : 2.0 (Updated)
+====================================*/
+
+/*----------------------------------
+   For screens up to 1680px
+------------------------------------*/
 @media screen and (max-width:1680px){
+  /* General adjustments for large desktops */
+}
 
-}/*max-width:1680px*/
+/*----------------------------------
+   For screens up to 1440px
+------------------------------------*/
 @media screen and (max-width:1440px){
-	.single-about-img img {max-width:100%;}
-	.single-about-img:before,.about-list-icon{width: 100%;}
-}/*max-width:1440px*/
+  .single-about-img img { max-width: 100%; }
+  .single-about-img:before, .about-list-icon { width: 100%; }
+}
 
+/*----------------------------------
+   For screens up to 1199px
+------------------------------------*/
 @media screen and (max-width:1199px){
-	nav.navbar.bootsnav ul.nav > li > a { padding: 35px 8px;}
-	
-	.welcome-hero {height: 768px;}
+  nav.navbar.bootsnav ul.nav > li > a { padding: 35px 8px; }
+  .welcome-hero { height: 768px; }
+  .timeline-content span>i, .experience-time span>i { left: -15.5%; }
+}
 
-	.timeline-content span>i, .experience-time span>i {left: -15.5%;}
-}/*max-width:1199px*/
-
+/*----------------------------------
+   For screens up to 1024px
+------------------------------------*/
 @media screen and (max-width:1024px){
+  /* Adjust header and sections if needed */
+  header { padding: 1rem 3%; }
+  .welcome-hero { height: 700px; }
+}
 
-
-}/*max-width:1024px*/
-
-@media screen and (max-width:1008px){
-	nav.navbar.bootsnav ul.nav > li.dropdown span.megamenu-title  {display:block;color: #43465d;font-size: 18px;}
-	nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .content ul.menu-col li .megamenu-sub-title a {margin-top: 20px;font-size: 14px;}
-	nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .content ul.menu-col li .megamenu-sub-txt a{margin-bottom: 15px;}
-}/*max-width:1008px*/
-
+/*----------------------------------
+   For screens up to 992px
+------------------------------------*/
 @media screen and (max-width:992px){
-	nav.navbar.bootsnav .navbar-collapse.collapse.in {padding-bottom: 30px;}
-	nav.navbar.bootsnav .navbar-toggle {display: inline-block; float: right;margin-right: 0;margin-top: 21px;}
-	nav.navbar.bootsnav .navbar-brand {float: left!important;}
-	nav.navbar.bootsnav ul.nav > li > a {padding: 15px 0px;border: transparent;}
-}/*max-width:992px*/
+  nav.navbar.bootsnav .navbar-collapse.collapse.in { padding-bottom: 30px; }
+  nav.navbar.bootsnav .navbar-toggle { display: inline-block; float: right; margin-right: 0; margin-top: 21px; }
+  nav.navbar.bootsnav .navbar-brand { float: left !important; }
+  nav.navbar.bootsnav ul.nav > li > a { padding: 15px 0; border: transparent; }
+}
 
+/*----------------------------------
+   For screens up to 991px
+------------------------------------*/
 @media screen and (max-width:991px){
-	.experience-time-responsive{display: block;}
-	.experience-time-main{display: none;}
-	.experience-time,.timeline-content{text-align: left;margin-bottom: 20px;margin-left: 40px;}
-	.timeline-content span>i{left: 0%;top: -54%;}
-	.experience-time span>i {left: -6%;top: 6%;}
-	.main-timeline:before {left:0.4%;}
+  .experience-time-responsive { display: block; }
+  .experience-time-main { display: none; }
+  .experience-time, .timeline-content { text-align: left; margin-bottom: 20px; margin-left: 40px; }
+  .timeline-content span>i { left: 0%; top: -54%; }
+  .experience-time span>i { left: -6%; top: 6%; }
+  .main-timeline::before { left: 0.4%; }
+  .education .education-horizontal-timeline {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
-	.single-horizontal-timeline .experience-time,.single-horizontal-timeline .timeline-content {margin: 0;}
-}/*max-width:991px*/
-
+/*----------------------------------
+   For screens up to 768px
+------------------------------------*/
 @media screen and (max-width:768px){
-    
-}/*max-width:768px*/
+  header { padding: 1rem 2%; }
+  .navbar { flex-direction: column; }
+  .welcome-hero h1 { font-size: 2.5rem; }
+  .about, .education, .skills, .experience, .profiles, .portfolio, .contact {
+    padding: 3rem 2%;
+  }
+  .about .about-content {
+    flex-direction: column;
+  }
+}
 
+/*----------------------------------
+   For screens up to 767px
+------------------------------------*/
 @media screen and (max-width:767px){
-	.single-about-img {max-width: 450px;}
-	.experience-time span>i,.timeline-content span>i,.main-timeline:before {display: none;}
-	.experience-time, .timeline-content {margin-left: 0;}
+  .single-about-img { max-width: 450px; }
+  .experience-time span>i, .timeline-content span>i, .main-timeline::before { display: none; }
+  .experience-time, .timeline-content { margin-left: 0; text-align: left; }
+  .isotope .item { max-width: 350px; margin: 0 auto 30px; }
+  .single-profile { max-width: 350px; margin: 30px auto; border: 0; }
+  .profile-border { border: 0; }
+  .single-horizontal-timeline { max-width: 350px; margin: 30px auto; }
+}
 
-	.isotope .item {max-width: 350px;margin: 0 auto 30px;}
+/*----------------------------------
+   For screens up to 660px
+------------------------------------*/
+@media screen and (max-width:660px){
+  .welcome-hero { height: 600px; }
+  .navbar ul li a { padding: 10px 8px; font-size: 0.9rem; }
+}
 
-	.single-profile {max-width: 350px; margin: 30px auto;border: 0;}
-	.profile-border{border: 0;}
+/*----------------------------------
+   For screens up to 640px
+------------------------------------*/
+@media screen and (max-width:640px){
+  .welcome-hero h1 { font-size: 2.3rem; }
+  .welcome-hero p { font-size: 1rem; }
+}
 
-	.single-horizontal-timeline {max-width: 350px;margin: 30px auto;}
+/*----------------------------------
+   For screens up to 580px
+------------------------------------*/
+@media screen and (max-width:580px){
+  nav.navbar.bootsnav ul.nav > li > a { padding: 10px 5px; }
+}
 
-}/*max-width:767px*/
+/*----------------------------------
+   For screens up to 540px
+------------------------------------*/
+@media screen and (max-width:540px){
+  .subscribe-title h2 { font-size: 24px; }
+}
 
-@media screen and (max-width: 660px){
+/*----------------------------------
+   For screens up to 480px
+------------------------------------*/
+@media screen and (max-width:480px){
+  .welcome-hero { height: 500px; }
+  nav.navbar.bootsnav ul.nav { flex-direction: column; }
+}
 
-}/*max-width:660px*/
+/*----------------------------------
+   For screens up to 440px and below
+------------------------------------*/
+@media screen and (max-width:440px){
+  .navbar-brand { font-size: 1.4rem; }
+  nav.navbar.bootsnav ul.nav li a { font-size: 0.9rem; padding: 8px 10px; }
+}
 
-@media screen and (max-width: 640px){
-
-}/*max-width:640px*/
-
-@media screen and (max-width: 580px){
-
-}/*max-width:580px*/
-
-@media screen and (max-width: 540px){
-	.subscribe-title h2 {font-size: 24px;}
-
-}/*max-width:540px*/
-
-@media screen and (max-width: 480px){
-	
-}/*max-width:480px*/
-
-@media screen and (max-width: 440px){
-	
-}/*max-width:400px*/
-
-@media screen and (max-width:350px){
-
-}/*max-width:350px*/
-
-@media screen and  (max-width: 320px){
-	
-}/*max-width:320px*/
-
+/*==================================
+   End of Updated Responsive CSS
+==================================== */
