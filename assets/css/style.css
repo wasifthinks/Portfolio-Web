@@ -180,10 +180,12 @@ nav ul li.active > a {
 .header-text {
   position: relative;
   z-index: 2;
+   color:#00b300
 }
 .welcome-hero h1 {
     font-size: 4rem;
     font-weight: 700;
+   text-transform: uppercase;
     color: #99ff33; /* Neon Cyan */
     text-shadow: 8px 8px 15px #99ff33, 0px 0px 30px #00FFFF;
 }
