@@ -1,11 +1,12 @@
 /*==================================
-* Author        : "Wasif Azim"
-* Template Name : Modern Portfolio Theme
-* Version       : 2.0 (Updated)
+* Updated Style CSS
+* Modern Portfolio Theme
+* Version       : 2.0 (Extended)
+* Author        : "Wasif Azim" (Adapted from ThemeSine)
 ====================================*/
 
 /*==================================
-Font Import & Global Styles
+   1. Global Reset & Base Styles
 ==================================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
@@ -16,8 +17,11 @@ Font Import & Global Styles
   --bg-light: #f9fbfd;
   --text-light: #eaeaea;
   --text-dark: #333;
+  --header-bg: rgba(0, 0, 0, 0.6);
+  --transition-speed: 0.3s;
 }
 
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
@@ -38,21 +42,63 @@ body {
   overflow-x: hidden;
 }
 
+/* Typography */
+a {
+  text-decoration: none;
+  color: #6a708e;
+  transition: color var(--transition-speed) ease;
+}
+a:hover {
+  color: var(--primary-color);
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #43485c;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+p {
+  line-height: 1.8;
+  color: #43485c;
+  font-size: 14px;
+}
+
+/* Images */
+img {
+  border: none;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Utility Classes */
+.fix {
+  position: relative;
+  clear: both;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 /*==================================
-Header
+   2. Header Section
 ==================================== */
-header {
+.top-area, header {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-  padding: 15px 5%;
   z-index: 1000;
 }
+header {
+  background: var(--header-bg);
+  backdrop-filter: blur(10px);
+  padding: 15px 5%;
+}
 
-header .navbar {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,6 +109,7 @@ header .navbar {
   font-weight: 700;
   color: var(--primary-color);
   text-transform: uppercase;
+  padding: 10px 0;
 }
 
 nav ul {
@@ -72,31 +119,30 @@ nav ul {
 }
 
 nav ul li a {
-  color: #fff;
-  text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
   padding: 10px 20px;
-  transition: color 0.3s ease;
+  color: #fff;
+  transition: color var(--transition-speed) ease;
 }
-
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a:focus,
+nav ul li.active > a {
   color: var(--primary-color);
 }
 
 /*==================================
-Welcome Hero Section
+   3. Welcome Hero Section
 ==================================== */
 .welcome-hero {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   position: relative;
   background: url('../images/hero-bg.jpg') no-repeat center center/cover;
-  text-align: center;
 }
-
 .welcome-hero::before {
   content: "";
   position: absolute;
@@ -104,14 +150,12 @@ Welcome Hero Section
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
 }
-
-.welcome-hero .header-text {
+.header-text {
   position: relative;
   z-index: 2;
 }
-
 .welcome-hero h1 {
   font-size: 3.5rem;
   font-weight: 700;
@@ -119,73 +163,62 @@ Welcome Hero Section
   color: var(--primary-color);
   margin-bottom: 1rem;
 }
-
 .welcome-hero p {
   font-size: 1.25rem;
   font-weight: 300;
   color: #fff;
   margin-bottom: 2rem;
 }
-
 .welcome-hero a {
   padding: 0.75rem 2rem;
   background: var(--primary-color);
   color: #fff;
   border-radius: 50px;
   text-transform: uppercase;
-  text-decoration: none;
   font-weight: 600;
   transition: background 0.3s ease;
 }
-
 .welcome-hero a:hover {
   background: var(--secondary-color);
 }
 
 /*==================================
-About Section
+   4. About Section
 ==================================== */
 .about {
   padding: 5rem 5%;
   background: var(--bg-light);
   color: var(--text-dark);
 }
-
 .about .section-heading {
   text-align: center;
   margin-bottom: 2rem;
 }
-
 .about .section-heading h2 {
   font-size: 2.5rem;
   color: var(--primary-color);
   text-transform: uppercase;
 }
-
 .about .about-content {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   align-items: center;
 }
-
 .about .single-about-txt {
   flex: 1;
   min-width: 300px;
 }
-
 .about .single-about-txt h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   line-height: 1.8;
 }
-
 .about .single-about-txt p {
   font-size: 1rem;
   color: #555;
   margin-bottom: 1rem;
 }
-
 .about .single-about-img {
   flex: 1;
   min-width: 300px;
@@ -193,45 +226,40 @@ About Section
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
 }
-
 .about .single-about-img img {
   width: 100%;
   display: block;
   transition: transform 0.5s ease;
 }
-
 .about .single-about-img:hover img {
   transform: scale(1.05);
 }
 
 /*==================================
-Education Section
+   5. Education Section
 ==================================== */
 .education {
   padding: 5rem 5%;
   background: #fff;
   color: var(--text-dark);
 }
-
 .education .section-heading {
   text-align: center;
   margin-bottom: 2rem;
 }
-
 .education .section-heading h2 {
   font-size: 2.5rem;
   color: var(--primary-color);
   text-transform: uppercase;
 }
-
 .education .education-horizontal-timeline {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
 }
-
 .education .single-horizontal-timeline {
   flex: 1;
   min-width: 250px;
@@ -241,54 +269,46 @@ Education Section
   text-align: center;
   transition: transform 0.3s ease;
 }
-
 .education .single-horizontal-timeline:hover {
   transform: translateY(-5px);
 }
-
 .education .experience-time h2 {
   font-size: 1.5rem;
   color: var(--accent-color);
   margin-bottom: 0.5rem;
 }
-
 .education .experience-time h3 {
   font-size: 1rem;
   color: #777;
 }
 
 /*==================================
-Skills Section
+   6. Skills Section
 ==================================== */
 .skills {
   padding: 5rem 5%;
   background: var(--bg-light);
   color: var(--text-dark);
 }
-
 .skills .section-heading {
   text-align: center;
   margin-bottom: 2rem;
 }
-
 .skills .section-heading h2 {
   font-size: 2.5rem;
   color: var(--primary-color);
   text-transform: uppercase;
 }
-
 .skills .skill-content {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
 }
-
 .skills .single-skill-content {
   flex: 1;
   min-width: 250px;
 }
-
 .skills .progress {
   background: #e0e0e0;
   border-radius: 50px;
@@ -296,7 +316,6 @@ Skills Section
   height: 10px;
   margin: 1rem 0;
 }
-
 .skills .progress-bar {
   background: var(--primary-color);
   height: 10px;
@@ -304,30 +323,26 @@ Skills Section
 }
 
 /*==================================
-Experience Section
+   7. Experience Section
 ==================================== */
 .experience {
   padding: 5rem 5%;
   background: #fff;
   color: var(--text-dark);
 }
-
 .experience .section-heading {
   text-align: center;
   margin-bottom: 2rem;
 }
-
 .experience .section-heading h2 {
   font-size: 2.5rem;
   color: var(--primary-color);
   text-transform: uppercase;
 }
-
 .experience .main-timeline {
   position: relative;
   padding: 2rem 0;
 }
-
 .experience .main-timeline::before {
   content: "";
   position: absolute;
@@ -338,7 +353,6 @@ Experience Section
   background: #e0e0e0;
   transform: translateX(-50%);
 }
-
 .experience .timeline-content {
   position: relative;
   width: 45%;
@@ -348,71 +362,61 @@ Experience Section
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
-
 .experience .timeline-content:hover {
   transform: translateY(-5px);
 }
-
 .experience .timeline-content.left {
   float: left;
   clear: both;
   margin-right: 5%;
 }
-
 .experience .timeline-content.right {
   float: right;
   clear: both;
   margin-left: 5%;
 }
-
 .experience .timeline-content h4 {
   font-size: 1.25rem;
   color: var(--accent-color);
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
-
 .experience .timeline-content p {
   font-size: 1rem;
   color: #555;
 }
 
 /*==================================
-Profiles Section
+   8. Profiles Section
 ==================================== */
 .profiles {
   padding: 5rem 5%;
   background: var(--bg-light);
   color: var(--text-dark);
 }
-
 .profiles .section-heading {
   text-align: center;
   margin-bottom: 2rem;
 }
-
 .profiles .section-heading h2 {
   font-size: 2.5rem;
   color: var(--primary-color);
   text-transform: uppercase;
 }
-
 .profiles .single-profile {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
   transition: transform 0.3s ease;
+  margin-bottom: 2rem;
 }
-
 .profiles .single-profile:hover {
   transform: translateY(-5px);
 }
-
 .profiles .profile-txt {
   margin-top: 1rem;
 }
-
 .profiles .profile-txt h3 {
   font-size: 1.2rem;
   color: var(--accent-color);
@@ -420,73 +424,87 @@ Profiles Section
 }
 
 /*==================================
-Portfolio Section
+   9. Portfolio Section
 ==================================== */
 .portfolio {
   padding: 5rem 5%;
   background: #fff;
   color: var(--text-dark);
 }
-
 .portfolio .section-heading {
   text-align: center;
   margin-bottom: 2rem;
 }
-
 .portfolio .section-heading h2 {
   font-size: 2.5rem;
   color: var(--primary-color);
   text-transform: uppercase;
 }
-
 .portfolio .portfolio-item {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
 }
-
 .portfolio .portfolio-item img {
   width: 100%;
   display: block;
   transition: transform 0.3s ease;
 }
-
 .portfolio .portfolio-item:hover img {
   transform: scale(1.1);
 }
-
 .portfolio .portfolio-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 
 /*==================================
-Contact Section
+   10. Clients Section
+==================================== */
+.clients {
+  padding: 5rem 5%;
+  background: #fff;
+}
+.clients .clients-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  gap: 2rem;
+}
+.clients .clients-area .item {
+  padding: 0 25px;
+}
+.clients .clients-area .owl-carousel .owl-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+/*==================================
+   11. Contact Section
 ==================================== */
 .contact {
   padding: 5rem 5%;
   background: var(--bg-light);
   color: var(--text-dark);
 }
-
 .contact .section-heading {
   text-align: center;
   margin-bottom: 2rem;
 }
-
 .contact .section-heading h2 {
   font-size: 2.5rem;
   color: var(--primary-color);
   text-transform: uppercase;
 }
-
 .contact .contact-form {
   max-width: 600px;
   margin: 0 auto;
 }
-
 .contact .form-control {
   width: 100%;
   padding: 1rem;
@@ -496,18 +514,14 @@ Contact Section
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
-
 .contact .form-control:focus {
   border-color: var(--primary-color);
 }
-
 .contact .single-contact-btn {
   text-align: center;
   margin-top: 1rem;
 }
-
 .contact .single-contact-btn .contact-btn {
-  display: inline-block;
   padding: 1rem 2rem;
   background: var(--primary-color);
   color: #fff;
@@ -515,13 +529,12 @@ Contact Section
   border-radius: 50px;
   transition: background 0.3s ease;
 }
-
 .contact .single-contact-btn .contact-btn:hover {
   background: var(--secondary-color);
 }
 
 /*==================================
-Footer
+   12. Footer Section
 ==================================== */
 footer {
   padding: 2rem 5%;
@@ -529,19 +542,17 @@ footer {
   text-align: center;
   color: #aaa;
 }
-
 footer a {
   color: var(--primary-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
 footer a:hover {
   color: var(--secondary-color);
 }
 
 /*==================================
-Scroll Top
+   13. Scroll Top Button
 ==================================== */
 #scroll-Top {
   position: fixed;
@@ -550,7 +561,6 @@ Scroll Top
   display: none;
   z-index: 999;
 }
-
 #scroll-Top .return-to-top {
   width: 50px;
   height: 50px;
@@ -563,34 +573,36 @@ Scroll Top
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
 #scroll-Top .return-to-top:hover {
   background: var(--secondary-color);
 }
 
 /*==================================
-Responsive Design
+   14. Additional Utility Classes & Animations
 ==================================== */
-@media (max-width: 768px) {
-  header {
-    padding: 1rem 2%;
-  }
-  
-  .navbar {
-    flex-direction: column;
-  }
-  
-  .welcome-hero h1 {
-    font-size: 2.5rem;
-  }
-  
-  .about, .education, .skills, .experience, .profiles, .portfolio, .contact {
-    padding: 3rem 2%;
-  }
+.fadeIn {
+  animation: fadeInAnimation 1s ease-in-out forwards;
 }
-"""
 
-with open("/mnt/data/style_updated.css", "w", encoding="utf-8") as f:
-    f.write(updated_css)
-    
-"/mnt/data/style_updated.css"
+@keyframes fadeInAnimation {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Extra spacing classes */
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+/*==================================
+   End of Updated Style CSS
+==================================== */
+
+/*==================================
+   Recommended Image Sizes:
+   - Hero Background Image: 1920 x 1080 (or larger for retina displays)
+   - About Section Profile Image: 500 x 468 (or square 500 x 500)
+   - Portfolio Images: Ideally 800 x 600 (or optimized for your layout)
+   - Clients Logos: 300 x 150 (adjust as needed)
+==================================== */
