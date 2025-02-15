@@ -1,18 +1,8 @@
 /*==================================
 * Updated Style CSS
-* Modern Portfolio Theme
-* Version       : 2.0 (Extended)
-* Author        : Wasif Azim (Adapted from ThemeSine)
-* 
-* This file is designed to integrate with the following library CSS files:
-*   - animate.css
-*   - bootsnav.css
-*   - bootstrap.min.css
-*   - flaticon.css
-*   - owl.carousel.min.css
-*   - font-awesome.min.css
-*   - owl.theme.default.min.css
-*   - responsive.css
+* Futuristic Dark Mode (Neon Glow) Theme
+* Version       : 2.1
+* Author        : Wasif Azim (Adapted for Neon Glow)
 ====================================*/
 
 /*==================================
@@ -21,13 +11,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-  --primary-color: #ff0077;
-  --secondary-color: #ff1493;
-  --accent-color: #d92cf9;
-  --bg-light: #f9fbfd;
-  --text-light: #eaeaea;
-  --text-dark: #333;
-  --header-bg: rgba(0, 0, 0, 0.6);
+  --primary-color: #00E5FF;     /* Neon Cyan */
+  --secondary-color: #FF00FF;   /* Neon Magenta */
+  --accent-color: #39FF14;      /* Neon Green */
+  --bg-dark: #0A0A0A;           /* Pure Black */
+  --bg-light: #121212;          /* Dark Gray for sections */
+  --text-light: #FFFFFF;        /* White */
+  --text-dark: #CCCCCC;         /* Light Gray (for muted text) */
+  --header-bg: rgba(0, 0, 0, 0.9);
   --transition-speed: 0.3s;
 }
 
@@ -44,7 +35,7 @@ html {
 body {
   font-size: 16px;
   color: var(--text-light);
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  background: linear-gradient(135deg, var(--bg-dark), var(--bg-light));
   max-width: 1920px;
   margin: 0 auto;
   overflow-x: hidden;
@@ -53,20 +44,20 @@ body {
 /* Basic Typography */
 a {
   text-decoration: none;
-  color: #6a708e;
+  color: var(--text-light);
   transition: color var(--transition-speed) ease;
 }
 a:hover {
   color: var(--primary-color);
 }
 h1, h2, h3, h4, h5, h6 {
-  color: #43485c;
+  color: var(--text-light);
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 p {
   line-height: 1.8;
-  color: #009933;
+  color: var(--text-dark);
   font-size: 14px;
 }
 img {
@@ -89,10 +80,9 @@ img {
 /*==================================
    2. Header Section
 ==================================== */
-/* Updated Navbar */
 header {
-  background: rgba(0, 0, 0, 0.9); /* Higher opacity for better visibility */
-  backdrop-filter: blur(15px); /* Stronger blur effect */
+  background: var(--header-bg);
+  backdrop-filter: blur(15px);
   padding: 20px 5%;
   position: fixed;
   top: 0;
@@ -103,108 +93,111 @@ header {
 }
 
 .navbar {
-  height: 85px; /* Increased navbar height */
+  height: 85px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-   background: rgba(0, 0, 0, 0.95);
+  background: var(--header-bg);
 }
 
 /* Navbar Brand (Logo / Name) */
 .navbar-brand {
-  font-size: 2rem; /* Increased font size */
-  font-weight: 800; /* Bold for better visibility */
-  color: #ff0077;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-color);
   text-transform: uppercase;
   padding: 15px 0;
   transition: color 0.3s ease;
+  text-shadow: 0 0 10px var(--primary-color);
 }
 
 .navbar-brand:hover {
-  color: var(--secondary-color); /* Subtle color change on hover */
+  color: var(--secondary-color);
 }
 
 /* Navbar Links */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 2rem; /* Increased spacing between links */
+  gap: 2rem;
 }
 
 nav ul li a {
-  font-size: 1.2rem; /* Increased text size for readability */
-  font-weight: 600; /* Slightly bolder */
+  font-size: 1.2rem;
+  font-weight: 600;
   padding: 12px 22px;
-  color: #ffffff; /* Brighter white */
+  color: var(--text-light);
   transition: color 0.3s ease, background 0.3s ease;
-  border-radius: 8px; /* Rounded corners */
+  border-radius: 8px;
 }
 
-/* Hover & Active State */
 nav ul li a:hover,
 nav ul li a:focus,
 nav ul li.active > a {
-  color: #FF007F; /* Highlight color */
-  background: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /*==================================
    3. Welcome Hero Section
 ==================================== */
 .welcome-hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: url('../images/about/welcome-banner.jpg') no-repeat center center;
-    background-size: contain; /* Ensures the image does not stretch */
-    background-color: #1a1a2e; /* Dark fallback color */
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url('../images/about/welcome-banner.jpg') no-repeat center center;
+  background-size: cover;
+  background-color: var(--bg-dark);
 }
 
 .welcome-hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../images/about/welcome-banner.jpg') no-repeat center center;
-    background-size: cover;
-    filter: blur(25px); /* Increase blur */
-    opacity: 0.7; /* Adjust transparency */
-    z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/about/welcome-banner.jpg') no-repeat center center;
+  background-size: cover;
+  filter: blur(25px);
+  opacity: 0.7;
+  z-index: -1;
 }
 
 .header-text {
   position: relative;
   z-index: 2;
-   color:#00b300
 }
+
 .welcome-hero h2 {
-    font-size: 4rem;
-    font-weight: 700;
-   text-transform: uppercase;
-    color: #b3ffd9; /* Neon Cyan */
-    text-shadow: 8px 8px 15px #99ff33, 0px 0px 30px #00FFFF;
+  font-size: 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  text-shadow: 8px 8px 15px rgba(0, 229, 255, 0.6), 0px 0px 30px rgba(0, 229, 255, 0.8);
 }
 
 .welcome-hero p {
   font-size: 1.25rem;
   font-weight: 300;
-  color: #99ff33;
+  color: var(--secondary-color);
   margin-bottom: 2rem;
 }
+
 .welcome-hero a {
   padding: 0.75rem 2rem;
   background: var(--primary-color);
-  color: #99ff33;
+  color: var(--text-light);
   border-radius: 50px;
   text-transform: uppercase;
   font-weight: 600;
   transition: background 0.3s ease;
+  box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
 }
+
 .welcome-hero a:hover {
   background: var(--secondary-color);
 }
@@ -214,8 +207,8 @@ nav ul li.active > a {
 ==================================== */
 .about {
   padding: 5rem 5%;
-  background: var(--bg-light);
-  color: var(--text-dark);
+  background: var(--bg-dark);
+  color: var(--text-light);
 }
 .about .section-heading {
   text-align: center;
@@ -243,7 +236,7 @@ nav ul li.active > a {
 }
 .about .single-about-txt p {
   font-size: 1rem;
-  color: #555;
+  color: var(--text-dark);
   margin-bottom: 1rem;
 }
 .about .single-about-img {
@@ -252,7 +245,7 @@ nav ul li.active > a {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 0 20px var(--primary-color);
   transition: transform 0.3s ease;
 }
 .about .single-about-img img {
@@ -269,8 +262,8 @@ nav ul li.active > a {
 ==================================== */
 .education {
   padding: 5rem 5%;
-  background: #fff;
-  color: var(--text-dark);
+  background: var(--bg-dark);
+  color: var(--text-light);
 }
 .education .section-heading {
   text-align: center;
@@ -290,7 +283,7 @@ nav ul li.active > a {
 .education .single-horizontal-timeline {
   flex: 1;
   min-width: 250px;
-  background: #f1f1f1;
+  background: #1e1e1e;
   padding: 1.5rem;
   border-radius: 10px;
   text-align: center;
@@ -306,7 +299,7 @@ nav ul li.active > a {
 }
 .education .experience-time h3 {
   font-size: 1rem;
-  color: #777;
+  color: var(--text-dark);
 }
 
 /*==================================
@@ -314,8 +307,8 @@ nav ul li.active > a {
 ==================================== */
 .skills {
   padding: 5rem 5%;
-  background: var(--bg-light);
-  color: var(--text-dark);
+  background: var(--bg-dark);
+  color: var(--text-light);
 }
 .skills .section-heading {
   text-align: center;
@@ -337,7 +330,7 @@ nav ul li.active > a {
   min-width: 250px;
 }
 .skills .progress {
-  background: #e0e0e0;
+  background: #333;
   border-radius: 50px;
   overflow: hidden;
   height: 10px;
@@ -354,8 +347,8 @@ nav ul li.active > a {
 ==================================== */
 .experience {
   padding: 5rem 5%;
-  background: #fff;
-  color: var(--text-dark);
+  background: var(--bg-dark);
+  color: var(--text-light);
 }
 .experience .section-heading {
   text-align: center;
@@ -377,16 +370,16 @@ nav ul li.active > a {
   bottom: 0;
   left: 50%;
   width: 4px;
-  background: #e0e0e0;
+  background: #333;
   transform: translateX(-50%);
 }
 .experience .timeline-content {
   position: relative;
   width: 45%;
   padding: 1.5rem;
-  background: #f9f9f9;
+  background: #1e1e1e;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px var(--primary-color);
   transition: transform 0.3s ease;
 }
 .experience .timeline-content:hover {
@@ -410,7 +403,7 @@ nav ul li.active > a {
 }
 .experience .timeline-content p {
   font-size: 1rem;
-  color: #555;
+  color: var(--text-dark);
 }
 
 /*==================================
@@ -418,8 +411,8 @@ nav ul li.active > a {
 ==================================== */
 .profiles {
   padding: 5rem 5%;
-  background: var(--bg-light);
-  color: var(--text-dark);
+  background: var(--bg-dark);
+  color: var(--text-light);
 }
 .profiles .section-heading {
   text-align: center;
@@ -431,7 +424,7 @@ nav ul li.active > a {
   text-transform: uppercase;
 }
 .profiles .single-profile {
-  background: rgba(255, 255, 255, 0.8);
+  background: #1e1e1e;
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
@@ -455,8 +448,8 @@ nav ul li.active > a {
 ==================================== */
 .portfolio {
   padding: 5rem 5%;
-  background: #fff;
-  color: var(--text-dark);
+  background: var(--bg-dark);
+  color: var(--text-light);
 }
 .portfolio .section-heading {
   text-align: center;
@@ -471,7 +464,7 @@ nav ul li.active > a {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 0 20px var(--primary-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin-bottom: 2rem;
 }
@@ -485,7 +478,7 @@ nav ul li.active > a {
 }
 .portfolio .portfolio-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 0 30px var(--primary-color);
 }
 
 /*==================================
@@ -493,7 +486,7 @@ nav ul li.active > a {
 ==================================== */
 .clients {
   padding: 5rem 5%;
-  background: #fff;
+  background: var(--bg-dark);
 }
 .clients .clients-area {
   display: flex;
@@ -516,8 +509,8 @@ nav ul li.active > a {
 ==================================== */
 .contact {
   padding: 5rem 5%;
-  background: var(--bg-light);
-  color: var(--text-dark);
+  background: var(--bg-dark);
+  color: var(--text-light);
 }
 .contact .section-heading {
   text-align: center;
@@ -535,11 +528,13 @@ nav ul li.active > a {
 .contact .form-control {
   width: 100%;
   padding: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #333;
   border-radius: 5px;
   margin-bottom: 1rem;
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  background: #1e1e1e;
+  color: var(--text-light);
 }
 .contact .form-control:focus {
   border-color: var(--primary-color);
@@ -551,10 +546,11 @@ nav ul li.active > a {
 .contact .single-contact-btn .contact-btn {
   padding: 1rem 2rem;
   background: var(--primary-color);
-  color: #fff;
+  color: var(--text-light);
   text-transform: uppercase;
   border-radius: 50px;
   transition: background 0.3s ease;
+  box-shadow: 0 0 10px var(--primary-color);
 }
 .contact .single-contact-btn .contact-btn:hover {
   background: var(--secondary-color);
@@ -565,9 +561,9 @@ nav ul li.active > a {
 ==================================== */
 footer {
   padding: 2rem 5%;
-  background: #111;
+  background: var(--bg-dark);
   text-align: center;
-  color: #aaa;
+  color: var(--text-dark);
 }
 footer a {
   color: var(--primary-color);
@@ -592,13 +588,14 @@ footer a:hover {
   width: 50px;
   height: 50px;
   background: var(--primary-color);
-  color: #fff;
+  color: var(--text-light);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: background 0.3s ease;
+  box-shadow: 0 0 10px var(--primary-color);
 }
 #scroll-Top .return-to-top:hover {
   background: var(--secondary-color);
@@ -623,7 +620,7 @@ footer a:hover {
 
 /*==================================
    End of Updated style.css
-==================================== */
+====================================*/
 
 /* Recommended Image Sizes:
    - Hero Background: 1920 x 1080 (or larger for retina displays)
