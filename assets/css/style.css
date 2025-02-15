@@ -182,7 +182,7 @@ nav ul li.active > a {
   z-index: 2;
    color:#00b300
 }
-.welcome-hero h1 {
+.welcome-hero h2 {
     font-size: 4rem;
     font-weight: 700;
    text-transform: uppercase;
