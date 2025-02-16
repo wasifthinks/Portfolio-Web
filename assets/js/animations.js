@@ -6,6 +6,7 @@ const animateOnScroll = () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate');
+                observer.unobserve(entry.target); // Stop observing after animating
             }
         });
     }, { threshold: 0.1 });
@@ -73,6 +74,7 @@ const animateProgressBars = () => {
             if (entry.isIntersecting) {
                 const percentage = entry.target.getAttribute('aria-valuenow');
                 entry.target.style.width = `${percentage}%`;
+                observer.unobserve(entry.target); // Stop observing after animating
             }
         });
     }, { threshold: 0.2 });
@@ -106,6 +108,7 @@ const initSectionAnimation = () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing after animating
                 }
             });
         },

@@ -80,6 +80,11 @@ body {
   max-width: 1920px;
   margin: 0 auto;
   overflow-x: hidden;
+  line-height: 1.6;
+}
+
+section {
+    padding: 4rem 0;
 }
 
 /* Basic Typography */
@@ -128,6 +133,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 
 header nav {
@@ -137,6 +143,8 @@ header nav {
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: none;
     backdrop-filter: none; /* Remove blur effect */
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
 }
 
 body.light header {
@@ -475,6 +483,8 @@ body.light .header-transparent {
     transition: all 0.3s ease-in-out;
     transform: translateY(-10px);
     opacity: 0;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 #mobile-menu.open {
@@ -546,6 +556,7 @@ body.light .mobile-nav-link {
   background: url('../images/about/welcome-banner.jpg') no-repeat center center;
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.5);
+  color: #fff; /* Ensure text is visible */
 }
 
 .welcome-hero::before {
@@ -656,6 +667,45 @@ body.light .mobile-nav-link {
 }
 .about .single-about-img:hover img {
   transform: scale(1.05);
+}
+
+/* Social icon enhancements */
+.about-list-icon ul,
+.hm-foot-icon ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+.about-list-icon ul li a,
+.hm-foot-icon ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+}
+
+.about-list-icon ul li a:hover,
+.hm-foot-icon ul li a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-3px) scale(1.1); /* Add slight lift on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+.about-list-icon ul li a i,
+.hm-foot-icon ul li a i {
+    font-size: 1.2rem;
+    /* Ensure icons are visible */
+    display: inline-block;
 }
 
 /*==================================
@@ -1313,5 +1363,34 @@ body.light .menu-icon-bar {
 @supports (-webkit-touch-callout: none) {
     #mobile-menu {
         padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* Desktop Adjustments for Better Responsiveness */
+@media (min-width: 1200px) {
+    body {
+        font-size: 0.875rem; /* reduce overall font size */
+    }
+    header nav {
+        padding: 0.5rem 1.5rem; /* reduced padding on header */
+    }
+    .welcome-hero {
+        height: 90vh; /* slightly reduce hero height */
+    }
+    .welcome-hero h2 {
+        font-size: 3.5rem; /* scale down heading size */
+    }
+    .section-heading h2 {
+        font-size: 2rem; /* adjust section headings */
+    }
+    /* Adjust other large elements if needed */
+    #mobile-menu,
+    .navbar-menu {
+        width: 220px; /* reduce menu width */
+    }
+    .menu-icon {
+        width: 30px;
+        height: 30px;
+        padding: 6px;
     }
 }
