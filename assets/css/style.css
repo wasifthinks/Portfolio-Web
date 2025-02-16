@@ -54,13 +54,26 @@ body.light {
     --accent-color: #059669;
     --bg-dark: #ffffff;
     --bg-light: #f8f9fa;
-    --text-light: #111827;
-    --text-dark: #4b5563;
+    --text-light: #1a1a1a;    /* Darker text for better contrast */
+    --text-dark: #4a4a4a;     /* Darker secondary text */
     --dialog-bg: rgba(255, 255, 255, 0.95);
     --dialog-border: rgba(0, 0, 0, 0.1);
     --header-bg: rgba(255, 255, 255, 0.15);  /* Even more transparent */
     --menu-icon-bg: rgba(0, 0, 0, 0.08);     /* New variable for menu icon */
     --menu-icon-color: #111827;              /* Dark color for light mode */
+    --header-text: #1a1a1a;   /* Dark text for header */
+}
+
+body.light .nav-link,
+body.light .mobile-nav-link,
+body.light #mobile-menu li a,
+body.light .section-heading h2 {
+    color: var(--header-text);
+}
+
+body.light #mobile-menu {
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Global Reset */
@@ -84,7 +97,26 @@ body {
 }
 
 section {
-    padding: 4rem 0;
+    padding: 5rem 1rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 3rem 1rem;
+    }
+    
+    .welcome-hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    .about .about-content {
+        gap: 1rem;
+    }
+    
+    .about .single-about-txt h3 {
+        font-size: 1rem;
+    }
 }
 
 /* Basic Typography */
@@ -147,6 +179,12 @@ header nav {
     border-radius: 1rem;
 }
 
+body.light {
+    --text-light: #1a1a1a;
+    --text-dark: #4a4a4a;
+    --header-text: #1a1a1a;
+}
+
 body.light header {
     background: var(--header-bg-light-solid);
     border-color: var(--header-border-light-solid);
@@ -156,6 +194,25 @@ body.light .navbar-brand,
 body.light .navbar-menu nav ul li a,
 body.light .menu-icon span {
     color: var(--header-text-light-mode);
+}
+
+body.light .nav-link,
+body.light .mobile-nav-link,
+body.light .navbar-brand,
+body.light #mobile-menu li a {
+    color: var(--header-text);
+}
+
+body.light header nav {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+body.light #mobile-menu {
+    background: rgba(255, 255, 255, 0.98);
+}
+
+body.light .menu-icon span {
+    background-color: var(--header-text);
 }
 
 .navbar {
@@ -283,6 +340,10 @@ body.light .menu-icon span {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+    display: none; /* Hide by default on desktop */
 }
 
 body.light .menu-icon {
@@ -325,6 +386,48 @@ body.light .menu-icon.active {
 
 body.light .menu-icon.active span {
     background: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+    }
+
+    .menu-icon span {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: var(--text-light);
+        transition: all 0.3s ease;
+    }
+
+    .menu-icon.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-icon.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-icon.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Ensure mobile menu is properly hidden/shown */
+    #mobile-menu {
+        display: block;
+        transform: translateX(100%);
+        visibility: hidden;
+    }
+
+    #mobile-menu.open {
+        transform: translateX(0);
+        visibility: visible;
+    }
 }
 
 /* Dropdown Menu */
@@ -394,7 +497,7 @@ body.light .navbar-menu nav ul li a {
 /* Responsive Styles */
 @media (max-width: 768px) {
     .navbar-menu {
-        width: 250px;
+        display: none; /* Hide tab names in mobile view */
     }
     
     .theme-toggle-wrapper {
@@ -406,7 +509,7 @@ body.light .navbar-menu nav ul li a {
     }
     
     .menu-icon {
-        display: block;
+        display: block; /* Show menu icon in mobile view */
     }
     
     nav ul {
@@ -453,6 +556,23 @@ body.light .header-transparent {
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
 }
 
 .nav-link:hover {
@@ -547,36 +667,34 @@ body.light .mobile-nav-link {
    3. Welcome Hero Section
 ==================================== */
 .welcome-hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: url('../images/about/welcome-banner.jpg') no-repeat center center;
-  background-size: cover;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff; /* Ensure text is visible */
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('../images/about/welcome-banner.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: scroll;
+    overflow: hidden;
 }
 
 .welcome-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('../images/about/welcome-banner.jpg') no-repeat center center;
-  background-size: cover;
-  filter: blur(25px);
-  opacity: 0.4;
-  z-index: -1;
-  filter: blur(8px) brightness(0.7);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Simple dark overlay */
+    z-index: 1;
 }
 
 .header-text {
-  position: relative;
-  z-index: 2;
+    position: relative;
+    z-index: 2;
+    padding: 0 1rem;
+    color: #fff;
 }
 
 .welcome-hero h2 {
@@ -706,6 +824,30 @@ body.light .mobile-nav-link {
     font-size: 1.2rem;
     /* Ensure icons are visible */
     display: inline-block;
+}
+
+/* Enhanced Social Icons */
+.about-list-icon ul li a,
+.hm-foot-icon ul li a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-light);
+    font-size: 1.2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-list-icon ul li a:hover,
+.hm-foot-icon ul li a:hover {
+    background: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /*==================================
@@ -995,12 +1137,21 @@ body.light .main-timeline::before {
   transition: border-color 0.3s ease;
   background: #1e1e1e;
   color: var(--text-light);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
 }
 
 body.light .form-control {
     background: var(--bg-light);
     border-color: var(--dialog-border);
     color: var(--text-light);
+}
+
+body.light .contact .form-control {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-dark);
 }
 
 .contact .form-control:focus {
@@ -1013,7 +1164,7 @@ body.light .form-control {
 .contact .single-contact-btn .contact-btn {
   padding: 1rem 2rem;
   background: var(--primary-color);
-  color: var(--text-light);
+  color: var (--text-light);
   text-transform: uppercase;
   border-radius: 50px;
   transition: background 0.3s ease;
@@ -1454,4 +1605,74 @@ body.light .menu-icon-bar {
     .contact .single-contact-btn .contact-btn {
         padding: 0.75rem 1.5rem; /* reduce contact button padding */
     }
+}
+
+/* Enhanced Mobile Menu */
+#mobile-menu {
+    position: fixed;
+    top: 80px;
+    right: 15px;
+    width: calc(100% - 30px);
+    max-width: 300px;
+    background: var(--bg-dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+}
+
+#mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#mobile-menu ul {
+    padding: 0;
+    margin: 0;
+}
+
+#mobile-menu li {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+}
+
+#mobile-menu.open li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#mobile-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    margin: 0.5rem 0;
+    color: var(--text-light);
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#mobile-menu li a:hover {
+    background: var(--primary-color);
+    transform: translateX(5px);
+}
+
+/* Desktop/Mobile Display Control */
+@media (max-width: 768px) {
+    .desktop-nav { display: none; }
+    .mobile-nav { display: block; }
+    .menu-icon { display: block; }
+}
+
+@media (min-width: 769px) {
+    .desktop-nav { display: block; }
+    .mobile-nav { display: none; }
+    .menu-icon { display: none; }
 }

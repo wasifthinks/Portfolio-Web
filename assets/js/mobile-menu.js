@@ -2,68 +2,57 @@ class MobileMenu {
     constructor() {
         this.button = document.getElementById('mobile-menu-button');
         this.menu = document.getElementById('mobile-menu');
-        this.menuOpen = false;
-
+        this.links = document.querySelectorAll('#mobile-menu a');
+        this.isOpen = false;
+        
         if (this.button && this.menu) {
             this.init();
-        } else {
-            console.error('Mobile menu button or menu not found.');
         }
     }
 
     init() {
-        // Check if elements exist before adding listeners
-        if (!this.button || !this.menu) return;
-
-        this.button.addEventListener('click', () => {
-            this.toggleMenu();
-        });
-
-        // Close menu on link click
-        this.menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
+        this.button.addEventListener('click', () => this.toggleMenu());
+        
+        // Close menu when clicking links
+        this.links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
                 this.closeMenu();
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
 
-        // Close menu on outside click
+        // Close on outside click
         document.addEventListener('click', (e) => {
-            if (this.menuOpen && !this.menu.contains(e.target) && !this.button.contains(e.target)) {
+            if (this.isOpen && !this.menu.contains(e.target) && !this.button.contains(e.target)) {
                 this.closeMenu();
             }
         });
 
-        // Close menu on window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
+        // Handle scroll
+        window.addEventListener('scroll', () => {
+            if (this.isOpen) {
                 this.closeMenu();
             }
         });
     }
 
     toggleMenu() {
-        if (!this.button || !this.menu) return;
-
-        this.menuOpen = !this.menuOpen;
-        if (this.menuOpen) {
-            this.menu.classList.add('open');
-            this.button.setAttribute('aria-expanded', 'true');
-        } else {
-            this.menu.classList.remove('open');
-            this.button.setAttribute('aria-expanded', 'false');
-        }
+        this.isOpen = !this.isOpen;
+        this.button.classList.toggle('active');
+        this.menu.classList.toggle('open');
+        document.body.style.overflow = this.isOpen ? 'hidden' : '';
     }
 
     closeMenu() {
-        if (!this.button || !this.menu) return;
-
-        this.menuOpen = false;
+        this.isOpen = false;
+        this.button.classList.remove('active');
         this.menu.classList.remove('open');
-        this.button.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
     }
 }
 
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-    new MobileMenu();
-});
+document.addEventListener('DOMContentLoaded', () => new MobileMenu());

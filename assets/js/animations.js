@@ -1,17 +1,18 @@
 // Intersection Observer for scroll animations
 const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate');
-                observer.unobserve(entry.target); // Stop observing after animating
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
 
-    elements.forEach(element => observer.observe(element));
+    document.querySelectorAll('.animate-on-scroll').forEach(elem => observer.observe(elem));
 };
 
 // Image zoom effect
@@ -30,35 +31,40 @@ const initZoomEffects = () => {
     });
 };
 
-// Typing effect for hero section
+// Enhanced typing effect
 const initTypingEffect = () => {
     const element = document.querySelector('.typing-text');
     if (!element) return;
     
     const text = element.getAttribute('data-text');
     let index = 0;
+    element.textContent = '';
     
     const type = () => {
         if (index < text.length) {
             element.textContent += text.charAt(index);
             index++;
-            setTimeout(type, 100);
+            setTimeout(type, Math.random() * 100 + 50);
         }
     };
     
-    type();
+    setTimeout(type, 1000);
 };
 
-// Smooth scroll for navigation
+// Smooth scroll with offset
 const initSmoothScroll = () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const headerOffset = 80;
+                const elementPosition = target.offsetTop;
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
