@@ -1366,31 +1366,36 @@ body.light .menu-icon-bar {
     }
 }
 
-/* Desktop Adjustments for Better Responsiveness */
+/* Desktop Adjustments for Better Responsiveness (Updated) */
 @media (min-width: 1200px) {
     body {
-        font-size: 0.875rem; /* reduce overall font size */
+        font-size: 0.8rem; /* further reduce overall font size */
     }
     header nav {
-        padding: 0.5rem 1.5rem; /* reduced padding on header */
+        padding: 0.5rem 1.5rem; /* unchanged */
     }
     .welcome-hero {
-        height: 90vh; /* slightly reduce hero height */
+        height: 80vh; /* reduce hero height */
     }
     .welcome-hero h2 {
-        font-size: 3.5rem; /* scale down heading size */
+        font-size: 3rem; /* scale down heading size */
     }
     .section-heading h2 {
-        font-size: 2rem; /* adjust section headings */
+        font-size: 1.75rem; /* adjust section headings */
     }
-    /* Adjust other large elements if needed */
+    img {
+        max-width: 90%; /* constrain image sizes */
+    }
+    .portfolio .portfolio-item {
+        transform: scale(0.95); /* slightly shrink portfolio items */
+    }
     #mobile-menu,
     .navbar-menu {
-        width: 220px; /* reduce menu width */
+        width: 200px; /* further reduce menu width */
     }
     .menu-icon {
-        width: 30px;
-        height: 30px;
-        padding: 6px;
+        width: 28px;
+        height: 28px;
+        padding: 5px;
     }
 }
