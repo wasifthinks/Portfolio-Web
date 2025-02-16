@@ -128,4 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initFloatingAnimation();
     handleNavbarOpacity();
     initSectionAnimation();
+    // Remove NavbarManager initialization
+    // new NavbarManager();
 });

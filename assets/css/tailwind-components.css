@@ -1,0 +1,19 @@
+
+/* Prefix all classes with 'tw-' to avoid conflicts */
+.tw-button {
+    @apply px-4 py-2 rounded-lg transition-all duration-300;
+}
+
+.tw-button-primary {
+    @apply tw-button bg-blue-500 hover:bg-blue-600 text-white;
+}
+
+.tw-button-secondary {
+    @apply tw-button bg-gray-500 hover:bg-gray-600 text-white;
+}
+
+.tw-button-outline {
+    @apply tw-button border-2 border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500;
+}
+
+/* Add more custom Tailwind components as needed */

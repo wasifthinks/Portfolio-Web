@@ -1,47 +1,35 @@
-class ThemeSwitcher {
+class ThemeManager {
     constructor() {
-        this.theme = localStorage.getItem('theme') || 'dark';
+        this.themeToggles = document.querySelectorAll('#theme, #theme-mobile');
+        this.currentTheme = localStorage.getItem('theme') || 'dark';
         this.init();
     }
 
     init() {
-        document.body.classList.add(this.theme);
-        this.bindEvents();
-        this.updateIcon();
+        // Set initial theme
+        document.body.classList.add(this.currentTheme);
+        this.themeToggles.forEach(toggle => {
+            toggle.checked = this.currentTheme === 'light';
+            
+            toggle.addEventListener('change', () => {
+                this.toggleTheme(toggle.checked ? 'light' : 'dark');
+            });
+        });
     }
 
-    toggleTheme() {
-        document.body.classList.toggle('dark');
-        document.body.classList.toggle('light');
+    toggleTheme(theme) {
+        document.body.classList.remove('light', 'dark');
+        document.body.classList.add(theme);
+        localStorage.setItem('theme', theme);
         
-        this.theme = this.theme === 'dark' ? 'light' : 'dark';
-        localStorage.setItem('theme', this.theme);
-        
-        this.updateIcon();
-    }
-
-    updateIcon() {
-        const darkIcon = document.querySelector('.dark-icon');
-        const lightIcon = document.querySelector('.light-icon');
-        
-        if (this.theme === 'dark') {
-            darkIcon.style.opacity = '1';
-            lightIcon.style.opacity = '0';
-        } else {
-            darkIcon.style.opacity = '0';
-            lightIcon.style.opacity = '1';
-        }
-    }
-
-    bindEvents() {
-        const themeToggle = document.getElementById('theme-toggle');
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => this.toggleTheme());
-        }
+        // Update all toggle states
+        this.themeToggles.forEach(toggle => {
+            toggle.checked = theme === 'light';
+        });
     }
 }
 
-// Initialize theme switcher
+// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    new ThemeSwitcher();
+    new ThemeManager();
 });

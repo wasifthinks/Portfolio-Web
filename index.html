@@ -2,6 +2,27 @@
 <html class="no-js" lang="en">
 
     <head>
+    <!-- Replace the existing theme initialization script in head -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            const root = document.documentElement;
+            
+            // Set initial theme
+            document.body.classList.add(theme);
+            
+            // Set initial CSS variables
+            if (theme === 'light') {
+                root.style.setProperty('--bg-dark', '#ffffff');
+                root.style.setProperty('--bg-light', '#f8f9fa');
+                root.style.setProperty('--menu-icon-color', '#111827');
+            } else {
+                root.style.setProperty('--bg-dark', '#080A0F');
+                root.style.setProperty('--bg-light', '#10131A');
+                root.style.setProperty('--menu-icon-color', '#ffffff');
+            }
+        })();
+    </script>
     <!-- Meta Data -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,6 +66,9 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 
+    <!-- Add Tailwind CSS CDN before your custom CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Structured Data (Schema.org for Google) -->
     <script type="application/ld+json">
     {
@@ -74,45 +98,59 @@
         <![endif]-->
 		
 		<!-- top-area Start -->
-		<header class="top-area">
-			<div class="header-area">
-				<!-- Start Navigation -->
-			    <nav class="navbar">
-			        <a class="navbar-brand" href="index.html">Wasif Azim</a>
-			        
-			        <div class="navbar-right">
-			            <div class="theme-toggle-wrapper">
-			                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-			                    <i class="fa fa-moon-o dark-icon"></i>
-			                    <i class="fa fa-sun-o light-icon"></i>
-			                </button>
-			            </div>
+<header>
+    <nav>
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-3">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-bold text-white">
+                    Wasif Azim
+                </a>
 
-			            <div class="menu-icon">
-			                <span></span>
-			                <span></span>
-			                <span></span>
-			            </div>
-			        </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    
+                    <!-- Theme Toggle -->
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="theme" class="theme-toggle__input">
+                        <label for="theme" class="theme-toggle__label"></label>
+                    </div>
+                </div>
 
-			        <div class="navbar-menu">
-			            <nav>
-			                <ul>
-			                    <li><a href="#education">Education</a></li>
-			                    <li><a href="#skills">Skills</a></li>
-			                    <li><a href="#experience">Experience</a></li>
-			                    <li><a href="#portfolio">Portfolio</a></li>
-			                    <li><a href="#contact">Contact</a></li>
-			                </ul>
-			            </nav>
-			        </div>
-			    </nav>
-			    <!-- End Navigation -->
-			</div><!--/.header-area-->
+                <!-- Mobile Controls -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="theme-mobile" class="theme-toggle__input">
+                        <label for="theme-mobile" class="theme-toggle__label"></label>
+                    </div>
+                    <button id="mobile-menu-button" class="text-white" aria-expanded="false" aria-label="Toggle navigation">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
 
-		    <div class="clearfix"></div>
-
-		</header><!-- /.top-area-->
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden">
+                <nav>
+                    <ul>
+                        <li><a href="#about" class="mobile-nav-link">About</a></li>
+                        <li><a href="#education" class="mobile-nav-link">Education</a></li>
+                        <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+                        <li><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
+                        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </nav>
+</header>
 		<!-- top-area End -->
 	
 		<!--welcome-hero start -->
@@ -156,6 +194,7 @@
 											<p>915-307-7332</p>
 										</div>
 									</div>
+									
 									<div class="col-sm-4">
 										<div class="single-about-add-info">
 											<h3>email</h3>
@@ -224,7 +263,7 @@
 								<div class="timeline-horizontal-border">
 									<i class="fa fa-circle" aria-hidden="true"></i>
 									<span class="single-timeline-horizontal"></span>
-								</div>
+									</div>
 								<div class="timeline">
 									<div class="timeline-content">
 										<h4 class="title">
@@ -511,7 +550,7 @@
 								</div><!-- /.col -->
 
 								<div class="col-sm-4">
-									<div class="item">
+									<div class="item"></div>
 										<img src="assets/images/portfolio/p3.jpg" alt="portfolio image"/>
 										<div class="isotope-overlay">
 											<a href="#">
@@ -530,7 +569,7 @@
 											</a>
 										</div><!-- /.isotope-overlay -->
 									</div><!-- /.item -->
-									<div class="item">
+									<div class="item"></div>
 										<img src="assets/images/portfolio/p5.jpg" alt="portfolio image"/>
 										<div class="isotope-overlay">
 											<a href="#">
@@ -693,6 +732,7 @@
         <script src="assets/js/animations.js"></script>
         <script src="assets/js/theme-switcher.js"></script>
         <script src="assets/js/navbar.js"></script>
+        <script src="assets/js/header-manager.js"></script>
         
     </body>
 	
