@@ -30,7 +30,7 @@ class MobileMenu {
         document.addEventListener('click', (e) => {
             if (this.menuOpen && !this.menu.contains(e.target) && !this.button.contains(e.target)) {
                 this.closeMenu();
-            });
+            }
         });
 
         // Close menu on window resize
