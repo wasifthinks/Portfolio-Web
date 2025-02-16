@@ -693,52 +693,22 @@ body.light .mobile-nav-link {
     padding-top: 100px;
 }
 
-/* Add dark overlay for image */
+/* Remove the ::before pseudo-element that created the dark overlay */
 .welcome-hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Darker overlay for better text visibility */
-    z-index: 1;
+    display: none; /* This removes the dark overlay */
 }
 
-/* Enhanced text styles with glow */
 .header-text {
     position: relative;
     z-index: 2;
     padding: 0 1rem;
 }
 
-/* Enhanced Hero Section Styles */
 .welcome-hero h2 {
     font-size: clamp(2rem, 5vw, 4.5rem);
     font-weight: 700;
     text-transform: uppercase;
-    background: linear-gradient(
-        270deg, 
-        #00ffff,    /* Cyan */
-        #ff00ff,    /* Magenta */
-        #ff0066,    /* Pink */
-        #ff3300,    /* Orange-Red */
-        #ffff00,    /* Yellow */
-        #FF7E5F,    
-        #FEB47B,
-        #00C9FF,
-        #92FE9D,
-        #DA22FF,
-        #9733EE,
-        #00F260,
-        #0575E6,
-        #F7971E,
-        #FFD200,
-        #FFDEE9,
-        #B5FFFC,
-        #4d4dff,    /* Blue */
-        #00ffff     /* Back to Cyan for smooth loop */
-    );
+    background: linear-gradient(270deg, #00ffff, #ff00ff, #ffff00);
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -749,22 +719,19 @@ body.light .mobile-nav-link {
     opacity: 0.9;
 }
 
-/* Update role text styling */
 .welcome-hero p {
     font-size: clamp(1rem, 2vw, 1.25rem);
-    font-weight: 600;
-    color: #ffffff;
-    margin: 0 auto 2rem;
-    max-width: 800px;
-    padding: 0 1rem;
-    text-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(0, 255, 255, 0.8),
-        0 0 30px rgba(255, 0, 255, 0.4);
-    letter-spacing: 1px;
-    animation: roleGlow 3s ease-in-out infinite alternate;
-    opacity: 1;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8),
+                 0 0 25px rgba(0, 255, 255, 0.6),
+                 0 0 35px rgba(0, 255, 255, 0.4);
+    animation: textGlow 3s ease-in-out infinite alternate;
+    opacity: 0.85;
+    margin-bottom: 1rem;
 }
+
+/* Enhanced Hero Section Styles */
 
 /* Add new animation for role text */
 @keyframes roleGlow {
