@@ -1399,3 +1399,59 @@ body.light .menu-icon-bar {
         padding: 5px;
     }
 }
+
+/* Desktop Adjustments for Better Responsiveness (Further Updated) */
+@media (min-width: 1200px) {
+    body {
+        font-size: 0.75rem; /* further reduce overall font size */
+    }
+    header nav {
+        padding: 0.5rem 1rem; /* reduce padding on header */
+    }
+    .welcome-hero {
+        height: 75vh; /* further reduce hero height */
+    }
+    .welcome-hero h2 {
+        font-size: 2.5rem; /* further scale down heading size */
+    }
+    .section-heading h2 {
+        font-size: 1.5rem; /* further adjust section headings */
+    }
+    img {
+        max-width: 80%; /* further constrain image sizes */
+    }
+    .portfolio .portfolio-item {
+        transform: scale(0.9); /* further shrink portfolio items */
+    }
+    #mobile-menu,
+    .navbar-menu {
+        width: 180px; /* further reduce menu width */
+    }
+    .menu-icon {
+        width: 25px;
+        height: 25px;
+        padding: 4px;
+    }
+    .about .single-about-txt h3 {
+        font-size: 1rem; /* reduce about section text size */
+    }
+    .about .single-about-txt p {
+        font-size: 0.875rem; /* reduce about section paragraph size */
+    }
+    .skills .section-heading h2,
+    .experience .section-heading h2,
+    .profiles .section-heading h2,
+    .portfolio .section-heading h2,
+    .contact .section-heading h2 {
+        font-size: 1.5rem; /* reduce section heading sizes */
+    }
+    .skills .progress-bar {
+        height: 8px; /* reduce progress bar height */
+    }
+    .contact .form-control {
+        padding: 0.75rem; /* reduce form control padding */
+    }
+    .contact .single-contact-btn .contact-btn {
+        padding: 0.75rem 1.5rem; /* reduce contact button padding */
+    }
+}
