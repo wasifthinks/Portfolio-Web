@@ -51,7 +51,7 @@
 body.light {
     --primary-color: #2563eb;
     --secondary-color: #dc2626;
-    --accent-color: #059669;
+    --accent-color: #09eca4;
     --bg-dark: #ffffff;
     --bg-light: #f8f9fa;
     --text-light: #1a1a1a;    /* Darker text for better contrast */
@@ -170,13 +170,12 @@ header {
 
 header nav {
     margin: 1rem;
-    background: rgba(17, 24, 39, 0.95); /* Solid background instead of blur */
+    background: rgba(17, 24, 39, 0.85); /* Less opacity */
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: none;
-    backdrop-filter: none; /* Remove blur effect */
+    backdrop-filter: none; /* Remove blur */
     padding: 0.75rem 1rem;
-    border-radius: 1rem;
 }
 
 body.light {
@@ -204,7 +203,8 @@ body.light #mobile-menu li a {
 }
 
 body.light header nav {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 body.light #mobile-menu {
@@ -213,6 +213,12 @@ body.light #mobile-menu {
 
 body.light .menu-icon span {
     background-color: var(--header-text);
+}
+
+body.light .text-white,
+body.light .text-2xl,
+body.light .font-bold {
+    color: #1a1a1a !important; /* Force black text in light mode */
 }
 
 .navbar {
@@ -457,7 +463,7 @@ body.light .portfolio-item {
 }
 
 body.light .navbar-menu {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(244, 243, 243, 0.85);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
@@ -490,7 +496,7 @@ body.light .navbar-menu nav ul li a {
 
 .navbar-menu nav ul li a:hover {
     background: var(--primary-color);
-    color: white;
+    color: rgb(247, 240, 240);
     transform: translateX(5px);
 }
 
@@ -536,18 +542,25 @@ body.light .navbar-menu nav ul li a {
     }
 
     header nav {
-        padding: 0.75rem 1rem;
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+    
+    .welcome-hero {
+        padding-top: 60px;
     }
 }
 
 /* Add scroll-based header transparency */
 .header-transparent {
     background: rgba(8, 10, 15, 0.4) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
 body.light .header-transparent {
     background: var(--header-bg-light-solid) !important;
-    backdrop-filter: blur(8px);
+    backdrop-filter: none !important;
 }
 
 .nav-link {
@@ -677,8 +690,10 @@ body.light .mobile-nav-link {
     background-size: cover;
     background-attachment: scroll;
     overflow: hidden;
+    padding-top: 100px;
 }
 
+/* Add dark overlay for image */
 .welcome-hero::before {
     content: "";
     position: absolute;
@@ -686,50 +701,186 @@ body.light .mobile-nav-link {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Simple dark overlay */
+    background: rgba(0, 0, 0, 0.6); /* Darker overlay for better text visibility */
     z-index: 1;
 }
 
+/* Enhanced text styles with glow */
 .header-text {
     position: relative;
     z-index: 2;
     padding: 0 1rem;
-    color: #fff;
 }
 
+/* Enhanced Hero Section Styles */
 .welcome-hero h2 {
-  font-size: 4.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s ease forwards 0.5s;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    background: linear-gradient(
+        270deg, 
+        #00ffff,    /* Cyan */
+        #ff00ff,    /* Magenta */
+        #ff0066,    /* Pink */
+        #ff3300,    /* Orange-Red */
+        #ffff00,    /* Yellow */
+        #FF7E5F,    
+        #FEB47B,
+        #00C9FF,
+        #92FE9D,
+        #DA22FF,
+        #9733EE,
+        #00F260,
+        #0575E6,
+        #F7971E,
+        #FFD200,
+        #FFDEE9,
+        #B5FFFC,
+        #4d4dff,    /* Blue */
+        #00ffff     /* Back to Cyan for smooth loop */
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.7));
+    animation: gradientShift 12s ease infinite, 
+               glowPulse 2s ease-in-out infinite alternate,
+               textFloat 3s ease-in-out infinite;
+    opacity: 0.9;
 }
 
+/* Update role text styling */
 .welcome-hero p {
-  font-size: 1.25rem;
-  font-weight: 300;
-  color: var(--secondary-color);
-  margin-bottom: 2rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 auto 2rem;
+    max-width: 800px;
+    padding: 0 1rem;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(0, 255, 255, 0.8),
+        0 0 30px rgba(255, 0, 255, 0.4);
+    letter-spacing: 1px;
+    animation: roleGlow 3s ease-in-out infinite alternate;
+    opacity: 1;
 }
 
+/* Add new animation for role text */
+@keyframes roleGlow {
+    from {
+        text-shadow: 
+            2px 2px 4px rgba(0, 0, 0, 0.8),
+            0 0 20px rgba(0, 255, 255, 0.8),
+            0 0 30px rgba(255, 0, 255, 0.4);
+    }
+    to {
+        text-shadow: 
+            2px 2px 4px rgba(0, 0, 0, 0.8),
+            0 0 30px rgba(0, 255, 255, 0.9),
+            0 0 40px rgba(255, 0, 255, 0.6);
+    }
+}
+
+/* Update Hero Button Spacing */
 .welcome-hero a {
-  padding: 0.75rem 2rem;
-  background: var(--primary-color);
-  color: var(--text-light);
-  border-radius: 50px;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: background 0.3s ease;
-  box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+    padding: 0.75rem 2rem;
+    background: var(--primary-color);
+    color: var(--text-light);
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px var(--primary-color);
+    animation: glowButton 2s ease-in-out infinite alternate;
+    margin-top: 2rem; /* Add space above button */
+    display: inline-block; /* Ensure margin works properly */
+}
+
+/* Color changing and glow animations */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes glowPulse {
+    from {
+        filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.7))
+               drop-shadow(0 0 40px rgba(0, 255, 255, 0.4));
+    }
+    to {
+        filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.9))
+               drop-shadow(0 0 60px rgba(0, 255, 255, 0.6));
+    }
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8),
+                     0 0 25px rgba(0, 255, 255, 0.6),
+                     0 0 35px rgba(0, 255, 255, 0.4);
+    }
+    to {
+        text-shadow: 0 0 25px rgba(255, 255, 255, 0.9),
+                     0 0 45px rgba(0, 255, 255, 0.7),
+                     0 0 65px rgba(0, 255, 255, 0.5);
+    }
+}
+
+@keyframes textFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+/* Hero button with enhanced glow */
+.welcome-hero a {
+    padding: 0.75rem 2rem;
+    background: var(--primary-color);
+    color: var(--text-light);
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px var(--primary-color);
+    animation: glowButton 2s ease-in-out infinite alternate;
 }
 
 .welcome-hero a:hover {
-  background: var(--secondary-color);
+    background: var(--secondary-color);
+    box-shadow: 0 0 30px var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Glow animations */
+@keyframes glowHeading {
+    from {
+        filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.3));
+    }
+    to {
+        filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.7));
+    }
+}
+
+@keyframes glowText {
+    from {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    }
+}
+
+@keyframes glowButton {
+    from {
+        box-shadow: 0 0 10px var(--primary-color);
+    }
+    to {
+        box-shadow: 0 0 25px var(--primary-color);
+    }
 }
 
 /*==================================
